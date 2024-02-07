@@ -1,0 +1,32 @@
+{% extends 'aplicacion/home.html' %}
+
+
+
+
+{% block contenido %}
+<H1>autos disponibles</H1>
+
+  
+    <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>id</th>
+               <th>autos disponibles</th>
+               <th>nombre del primer dueño</th>
+               <th>email del dueño </th>
+               <th>modelo del auto </th>
+            <tr>
+        </thead>
+        </tbody>
+    {% for c in autos_disponibles %}
+            <tr>
+                <td>{{c.id}} </td>
+                <td>{{c.nombre_auto}}</td>
+                <td>{{c.nombre_primer_dueño}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.modelo}}</td>
+             <tr>
+    {% endfor %}
+       </tbody>
+    </table>
+{% endblock contenido %}
