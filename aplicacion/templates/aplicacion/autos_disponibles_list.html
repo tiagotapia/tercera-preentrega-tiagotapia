@@ -1,0 +1,77 @@
+{% extends 'aplicacion/home.html' %}
+
+
+
+
+{% block contenido %}
+
+    
+<table>
+     <tr>
+       <td width="200"><h2>autos_disponibles </h2></td>
+      
+         <td>
+            <a
+             href="{%url 'autos_disponiblescreate' %}"
+             class="btn btn-primary btn-sm"
+             ><i class="fa fa-plus fa-lg" title="crear"> </i>
+             </a>
+         </td>
+     </tr>
+</table>
+
+  
+    <table class="table table-striped">
+         <thead>
+            <tr>
+               <th>id</th>
+               <th>autos disponibles</th>
+               <th>nombre del primer dueño</th>
+               <th>email del dueño </th>
+               <th>modelo del auto </th>
+                <th>acciones </th>
+       
+               
+
+            
+                         
+             
+            
+            <tr>
+        </thead>
+        </tbody>
+    {% for c in autos_disponibles_list %}
+            <tr>
+                
+                <td>{{c.nombre_auto}} </td>
+                <td>{{c.nombre_primer_dueño}}  
+                <td>{{c.email}}</td>
+                <td>{{c.modelo}}</td>
+             
+                <td>
+                <img src="{{c.imagen.url}}" alt="" class="prod-size">
+                <td>
+             
+             
+               
+                  <a
+                href="{%url 'autos_disponiblesUpdate' c.id %}"
+                class="btn btn-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+              </a>
+              <a
+                href="{%url 'autos_disponiblesDelete' c.id %}"
+                class="btn btn-danger"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                
+              </a>                
+            </td>
+                </td>
+             <tr>
+    {% endfor %}
+       </tbody>
+    </table>
+{% endblock contenido %}
+

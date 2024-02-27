@@ -1,0 +1,21 @@
+{% extends 'aplicacion/home.html' %}
+
+
+
+
+{% block contenido %}
+
+<form action="" method="post" enctype="multipart/form-data" style="margin: 10px 40%;">
+    {% csrf_token %}
+
+    <table>
+        <h3>esta pequeña parte es de mi, me llamo tiago tapia , vivo en catamarca (capital), tengo 20 años, estudio tecnico en informatica en la uniservidad nacional de catamarca(unca)
+            me gusta mucho el mundo de la progracion , se aprende mucho a pesar que recien estoy comenzando , me gusta mucho el futbol , pasar el rato con amigos, salir a bailar , hacer cualquier tipo de plan
+            ,persigan sus sueños que nadie los detenga a pesar que el camino a veces se pone dificil siempre hay darle para adelante y pasar los ostaculos  de eso se trata la vida!!!!, BUENAS VIBRAS Y BUEN 2024   
+        </h3>
+        {{ form.as_table }}
+    </table>
+    
+   
+</form>
+{% endblock contenido %}

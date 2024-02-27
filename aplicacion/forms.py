@@ -1,16 +1,32 @@
 from django import forms
-
-class autosform(forms.Form):
-    nombre_auto=forms.CharField(max_length=50,required=True)
-    dueño=forms.CharField(max_length=50,required=True)
-    correo=forms.EmailField(required=True)
-    modelo=forms.CharField(max_length=50,required=True)
-class metodo_pagoform(forms.Form):
-    efectivo=forms.CharField(max_length=50,required=True)
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 
 
-class permutacionform(forms.Form):
-     nombre_autoo=forms.CharField(max_length=50,)
-     nombre_primer_dueñoo =forms.CharField(max_length=50,)
-     emaill=forms.EmailField()
-     modeloo =forms.IntegerField()
+
+
+class registroform( UserCreationForm):
+    email=forms.EmailField(max_length=50,required=True)
+    password1=forms.CharField(label="contraseña",widget=forms.PasswordInput)
+    password2=forms.CharField(label="confirmar contraseña",widget=forms.PasswordInput)
+ 
+    class Meta:
+        model=User
+        fields=["username","email","password1","password2"]
+
+class UserEditForm(UserCreationForm):
+    email= forms.EmailField(max_length=50, required=True)
+    password1=forms.CharField(label="Contraseña", widget=forms.PasswordInput)
+    password2=forms.CharField(label="Confirmar Contraseña", widget=forms.PasswordInput)
+    first_name=forms.CharField(label="Nombre/s", max_length=50, required=True)
+    last_name=forms.CharField(label="Apellido/s", max_length=50, required=True)
+
+    class Meta:
+        model = User
+        fields = ['email', 'password1', 'password2', 'first_name', 'last_name']
+
+    
+class avatarform(forms.forms.Form):
+    imagen=forms.ImageField(required=True)
+
+    

@@ -1,0 +1,58 @@
+{% extends 'aplicacion/home.html' %}
+
+
+{% block contenido %}
+    <h1>ESTAS  EN LA PAGINA DE METODO DE PAGO </h1>
+{% endblock contenido %}
+
+{% block realidad %}
+<table>
+    <tr>
+      <td width="200"><h2>metodo_pago </h2></td>
+        <td>
+           <a
+            href="{%url 'metodo_pagocreate' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="crear"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+  
+    <table class="table table-striped">
+         <thead>
+             </tr>
+               <th>id</th>
+               <th>metodo de pago</th>
+               <th>     acciones   </th>
+            <tr>
+               
+              
+             <tr>
+        </thead>
+        </tbody>
+    {% for h in metodo_pago_list %}
+            <tr>
+             <td>{{h.id}}</td>
+             <td>{{h.efectivo}}</td>
+             <td>
+                <a
+                  href="{%url 'metodo_pagoUpdate' h.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{%url 'metodo_pagoDelete' h.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+              </td>
+           
+            <tr>
+    {% endfor %}
+       </tbody>
+    </table>
+{% endblock realidad %}

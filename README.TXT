@@ -21,5 +21,21 @@ para verificar los datos fueron correctamente ingresados ir a localhost:8000/adm
  -usuario:lucianobernasconi
  -password:python50200
 
+-agregue nuevo modelo llamdo "agencias"
+ - crear agencias:localhost:8000/aplicacion/agencias_form.html
+ pero a traves de los decoradores no van a poder ingresar ese modelo a traves del link por el motivo de que si o si se tiene que loguear y 
+ si no estan logueado se tiene que registrar 
+ 
+  
+
 #comentario extra:
 espero que me apruebe!!!!!
+
+
+
+
+
+
+
+
+

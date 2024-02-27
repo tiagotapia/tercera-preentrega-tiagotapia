@@ -1,0 +1,18 @@
+{% extends 'aplicacion/home.html' %}
+
+
+
+
+{% block contenido %}
+<h1>AGREGANDO AGENCIAS</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+        {{ form.as_table }}
+    </table>
+    
+    <input type="submit" value="Enviar">
+</form>
+    
+{% endblock contenido %}

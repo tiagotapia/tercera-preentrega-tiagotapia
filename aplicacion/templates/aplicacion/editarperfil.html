@@ -1,0 +1,17 @@
+{% extends 'aplicacion/home.html' %}
+
+
+
+
+{% block contenido %}
+<h1>editar perfil</h1>
+<form action="" method="post">
+    {% csrf_token %}
+<table>
+    {{form.as_table}}
+</table>
+ <input type="submit" value="actualizar perfil">
+
+</form>
+    
+{% endblock contenido %}

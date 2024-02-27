@@ -5,4 +5,5 @@ from .models import *
 admin.site.register(autos_disponibles)
 admin.site.register(metodo_pago)
 admin.site.register(permutacion)
+admin.site.register(agencias)
 

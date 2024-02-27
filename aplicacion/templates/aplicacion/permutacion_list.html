@@ -1,0 +1,69 @@
+{% extends 'aplicacion/home.html' %}
+
+
+{% block contenido %}
+<h1>CUAL ES TU VEHICULO QUE DESEAS PERMUTAR???</h1>
+{% endblock contenido %}
+
+
+
+{% block aporte %}
+<table>
+    <tr>
+      <td width="200"><h2>permutacion </h2></td>
+        <td>
+           <a
+            href="{%url 'permutacioncreate' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="crear"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
+  
+  
+    <table class="table table-striped">
+         <thead>
+             </tr>
+             <th>id</th>
+             <th>autos_disponibles</th>
+             <th>nombre_primer_dueño</th>
+             <th>email_dueño</th>
+             <th>modelo_autos</th>
+             <th> acciones </th>
+             <tr>
+        </thead>
+        </tbody>
+    {% for d in permutacion_list %}
+             </tr>
+             <td>{{d.id}} </td>
+             <td>{{d.nombre_auto}}</td>
+             <td>{{d.nombre_primer_dueño}}</td>
+             <td>{{d.email}}</td>
+             <td>{{d.modelo}}</td>
+             <td>
+             <img src="{{d.imagenes.url}}" alt="" class="prod-size">
+             <td>
+             
+          
+                    <a
+                      href="{%url 'permutacionUpdate' d.id %}"
+                      class="btn btn-primary"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                      ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                    </a>
+                    <a
+                      href="{%url 'permutacionDelete' d.id %}"
+                      class="btn btn-danger"
+                      style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                      ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                    </a>                
+                  </td>
+      
+              
+             </tr>
+    {% endfor %}
+       </tbody>
+    </table>
+{% endblock aporte %}
